@@ -8,10 +8,18 @@ import shap
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer 
 from sklearn.ensemble import RandomForestRegressor
-from feature_engineering import engineer_features, InteractionTransformer
 import joblib
 import json 
 
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).parent / "src"))
+
+from feature_engineering import (
+    engineer_features,
+    InteractionTransformer
+)
 
 df = pd.read_csv("../datasets/winequality-red.csv")
 
